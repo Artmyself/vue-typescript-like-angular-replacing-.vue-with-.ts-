@@ -1,11 +1,7 @@
-<template>
-    
-    <div>
-            {{datas}}
-    </div>
-</template>
-<script lang="ts">
+
 import { Component, Prop, Vue, Watch } from "vue-property-decorator";
+import WithRender from './list.html';
+@WithRender
 @Component
 export default class List extends Vue {
   @Prop()
@@ -14,11 +10,12 @@ export default class List extends Vue {
   constructor() {
     super();
     this.datas = [];
+    console.log(this.datas);
   }
   @Watch("data")
   onDataChange() {
     this.datas.push(this.data);
   }
 }
-</script>
+
 
